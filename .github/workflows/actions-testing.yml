@@ -23,7 +23,7 @@ jobs:
       - run: node --version
 
   aaa:
-    name: 'actions/setup-node (with node-version-file: empty package.json)'
+    name: 'actions/setup-node (Before fix : with node-version-file: empty package.json )'
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4
@@ -35,7 +35,7 @@ jobs:
       - run: node --version
 
   aaaa:
-    name: 'nvp/setup-node (with node-version-file: empty package.json)'
+    name: 'nvp/setup-node (After fix : with node-version-file: empty package.json)'
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v4

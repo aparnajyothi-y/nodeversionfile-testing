@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v4
       # clear the package.json
       - run: 'echo "{ \"name\": \"test\" }" > package.json'
-      - uses: aparnajyothi-y/setup-node@addfixforcache
+      - uses: aparnajyothi-y/setup-node@action-testing
         with: 
           node-version-file: package.json
       - run: node --version

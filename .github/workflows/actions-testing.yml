@@ -1,0 +1,52 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request: {}
+
+jobs:
+  a:
+    name: 'actions/setup-node (default)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+      - run: node --version
+
+  aa:
+    name: 'actions/setup-node (with node-version-file: package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+      - run: node --version
+
+  aaa:
+    name: 'actions/setup-node (with node-version-file: empty package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      # clear the package.json
+      - run: 'echo "{ \"name\": \"test\" }" > package.json'
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: package.json
+      - run: node --version
+
+  aaaa:
+    name: 'nvp/setup-node (with node-version-file: empty package.json)'
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v4
+      # clear the package.json
+      - run: 'echo "{ \"name\": \"test\" }" > package.json'
+      - uses: aparnajyothi-y/setup-node@addfixforcache
+        with: 
+          node-version-file: package.json
+      - run: node --version
+
